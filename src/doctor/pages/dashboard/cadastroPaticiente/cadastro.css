@@ -1,0 +1,63 @@
+.CadastroPaciente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background-color: #9cc4e4;
+}
+.CadastroPaciente form {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  background-color: #fcb8ff;
+  height: 23rem;
+  margin-top: 20px;
+}
+
+.form input {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 2px;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  background-color: antiquewhite;
+}
+.CadastroPaciente button:hover {
+  background-color: #0062cc;
+}
+.CadastroPaciente button{
+  width: 10rem;
+  height: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+
+
+.form-error {
+  color: red;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+.form-row1 {
+  display: flex;
+  align-items: center;
+}
+
+.form-row {
+  width: 80%;
+}

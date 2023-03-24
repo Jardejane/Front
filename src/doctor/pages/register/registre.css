@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ body {
+  width: 100vw;
+  height: 100vh;
+}
+
+.RegistroDoctor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: #6850ef;
+}
+
+.RegistroDoctor form {
+   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fcb8ff;
+  margin-top: 1rem;
+  height: 91.2vh;
+ 
+}
+
+.RegistroDoctor h1 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #333;
+  text-align: center;
+}
+
+.RegistroDoctor input {
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  font-size: 1rem;
+  background-color: antiquewhite;
+}
+
+.RegistroDoctor input[type="text"]::placeholder {
+  color: #5c5656;
+}
+
+.RegistroDoctor p {
+  color: red;
+  margin: 5px 0 15px;
+}
+
+.LoginButton:hover {
+  background-color: #0069d9;
+}
+.CadastroButton:hover {
+  background-color: #0069d9;
+}
+.LoginButton{
+  width: 10rem;
+  height: 20px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+.CadastroButton{
+  width: 10rem;
+  height: 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #007bff;
+  cursor: pointer;
+}
+

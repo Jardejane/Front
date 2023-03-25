@@ -19,10 +19,11 @@ const Sidebar = ({ active }) => {
   
   const closeSidebar = () => {
     active(false)
-  }
-  const handleDelete = async () => {
+  };
+   const handleDelete = async () => {
     await App.deactivateAccount();
     setDeleteProfileClicked(false);
+    localStorage.removeItem('token');
     navigate('/')
   };
 

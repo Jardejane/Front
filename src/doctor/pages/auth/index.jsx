@@ -11,6 +11,7 @@ function LoginDoctor() {
     const [password, setPassword] = useState('');
 
 
+
     const handleEmailChange = (e) => {
         setEmail(e.target.value);
     };
@@ -26,7 +27,7 @@ function LoginDoctor() {
              localStorage.setItem('token',token.accessToken);
              navigate('/dashboard');
         } catch (error) {
-        //   setError(error.response.data.message);
+           setError(error.response.data.message);
             console.log(error)
         }
     };

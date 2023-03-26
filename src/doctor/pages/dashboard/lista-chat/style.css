@@ -1,4 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body,html {
+    width: 100%;
+    height: 100%;
+  }
+  div#root{
+    width: 100%;
+    height: 100%;
+  }
+
 .Geral{
     background-color: #9cc4e4;
-    height: 80%;
+    height: 90%;
 }

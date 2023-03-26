@@ -18,7 +18,7 @@ export const TodosPacientes = ({ paciente }) => {
   }, []);
 
   return (
-    <div className="page-container">
+    <div className="page-container3">
       <h1>Pacientes</h1>
       <div className="results-container">
         {getPaciente.map((patient) => (

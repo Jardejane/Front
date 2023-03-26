@@ -13,22 +13,5 @@ const api = axios.create({
     },
     (error) => Promise.reject(error)
   );
-
-  // api.interceptors.response.use(
-  //   (config) => {
-  //     return config;
-  //   },
-  //   (err) => {
-  //     if (err.response.status === 401 || err.response.status === 403) {
-  //       if (localStorage.getItem("token")) {
-  //         localStorage.removeItem("token");
-  //       }
-  //       window.location.href = "/login";
-  //       throw new Error(err.response.data.message);
-  //     }
-  
-  //     return err?.response;
-  //   }
-  // );
   
   export default api;

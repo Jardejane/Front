@@ -15,8 +15,8 @@ const ModalBackground = styled.div`
 `;
 
 const ModalContainer = styled.div`
-  width: 46%;
-  max-width: 600px;
+  width: 35%;
+  max-width: 100%;
   background-color: #ae736f;
   border-radius: 8px;
   overflow: hidden;

@@ -11,6 +11,7 @@ import Modal from '../modal/modal'
 import { CardWithData} from '../../pages/dashboard/update/update'
 import { useNavigate } from 'react-router-dom';
 import { App } from '../../../route/api-helpers'
+import api from '../../../database/api'
 
 const Sidebar = ({ active }) => {
   const navigate = useNavigate()
@@ -19,8 +20,8 @@ const Sidebar = ({ active }) => {
   
   const closeSidebar = () => {
     active(false)
-  };
-   const handleDelete = async () => {
+  }
+  const handleDelete = async () => {
     await App.deactivateAccount();
     setDeleteProfileClicked(false);
     localStorage.removeItem('token');

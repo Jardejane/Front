@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 
 export const TodosPacientes = ({ paciente }) => {
   const [getPaciente, setGetPaciente] = useState(paciente || []);
-  const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
   async function getAllPacientes() {

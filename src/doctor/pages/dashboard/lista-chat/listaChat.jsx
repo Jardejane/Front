@@ -1,7 +1,7 @@
-import "./style.css";
+import {GetWebChat} from '../../../../webchat/salasTodas/todasSalasPsicologo'
 
 export function ListaChat (){
   return (
-            <div className="Geral"><h1>Lista de chat</h1></div>
+           <GetWebChat/>
         )
 }

@@ -36,6 +36,7 @@ const Sidebar = ({ active }) => {
    navigate('/pesquisa')
   };
   const handleSair = () => {
+   localStorage.removeItem('token');
     navigate('/login')
   };
 
@@ -65,7 +66,7 @@ const Sidebar = ({ active }) => {
         <SidebarItem Icon={FiRefreshCw} Text="Editar Perfil" onClick={handleEdit}   />
         <SidebarItem Icon={FaUserAlt} Text="Deletar" onClick={() => setDeleteProfileClicked(true)}/>
         <SidebarItem Icon={FiLogOut} Text="Sair" onClick={handleSair} />
-      </Content>,
+      </Content>
       {editProfileClicked && (
         <Modal show={true} handleClose={() => setEditProfileClicked(false)}>
           <CardWithData/>

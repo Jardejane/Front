@@ -2,7 +2,7 @@ import { Alert } from "react-bootstrap";
 import api from "../database/api";
 
 export const App = {
-  //Prof não vai ter getAll e nem getId por que o doutor não pode ver os outros doutores
+
   fetchDataWithToken: async (token) => {
     try {
       const response = await api.get(`/auth/signed`, {
@@ -26,7 +26,7 @@ export const App = {
     return resp;
   },
   putDoctor: async (id, register, token) => {
-    const res = await api.put(`/doctor/${id}`, register, {
+    const res = await api.patch(`/doctor/${id}`, register, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -103,11 +103,34 @@ export const App = {
         }
       });
       const resp = await res.data;
-      console.log(resp);
       return resp;
     } catch (error) {
       console.log(error);
     }
-  }  
+  } , 
   
+  updatePaciente : async (id, data, token) =>{
+    try {
+      const req = await api.patch(`/patient/${id}`, data ,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data
+      console.log("resApi", res)
+      return res
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+  deletePaciente: async (id, token) => {
+    const res = await api.delete(`/patient/${id}`,{
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    const resp = await res.data;
+  },
+
 }

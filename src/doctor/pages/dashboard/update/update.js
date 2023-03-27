@@ -100,15 +100,12 @@ function EditForm({ id, data, onFinish, isLoading, setIsLoading }) {
     event.preventDefault();
 
     const token = localStorage.getItem("token");
-    console.log("Token:", token);
-    console.log("Form Data:", formData);
     setIsLoading(true);
     const response = await api.patch(`/doctor/${id}`, formData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("Response:", response.data);
     const timestamp = Date.now();
     onFinish();
     setIsLoading(false);

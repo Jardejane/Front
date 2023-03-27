@@ -1,10 +1,10 @@
 import "./informaçoes.css";
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate , Link} from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { App } from "../../route/api-helpers";
 
 export const InformaçõesPaciente = (token) => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [paciente, setPaciente] = useState({});
   const { id } = useParams();
 
@@ -14,10 +14,10 @@ export const InformaçõesPaciente = (token) => {
     console.log("paciente", paciente);
   }
 
-  const deletePaciente = async (id) =>{
-    await App.deletePaciente(id)
-    navigate('/todos-pacientes')
-  }
+  const deletePaciente = async (id) => {
+    await App.deletePaciente(id);
+    navigate("/todos-pacientes");
+  };
 
   const simNao = (value) => {
     return value ? "Sim" : "Não";
@@ -30,15 +30,14 @@ export const InformaçõesPaciente = (token) => {
   return (
     <div className="paciente-page-container">
       <div className="informações">
-      <p>{paciente?.name}</p>
-      <p>Email: {paciente?.email}</p>
-      <p>Idade: {paciente?.age}</p>
-      <p>Genero: {paciente?.gender}</p>
-      <p>Telefone: {paciente?.phone}</p>
-      <p>Tentativas de suicidio: {paciente?.attempts}</p>
-      <p>Grávida: {simNao(paciente?.pregnant)}</p>
-      <p>Filhos: {simNao(paciente?.children)}</p>
-
+        <p>{paciente?.name}</p>
+        <p>Email: {paciente?.email}</p>
+        <p>Idade: {paciente?.age}</p>
+        <p>Genero: {paciente?.gender}</p>
+        <p>Telefone: {paciente?.phone}</p>
+        <p>Tentativas de suicidio: {paciente?.attempts}</p>
+        <p>Grávida: {simNao(paciente?.pregnant)}</p>
+        <p>Filhos: {simNao(paciente?.children)}</p>
       </div>
       <div>
         <Link to={`/editar-paciente/${id}`}>
@@ -46,11 +45,8 @@ export const InformaçõesPaciente = (token) => {
         </Link>
       </div>
       <div>
-        <button onClick={deletePaciente} >
-          excluir
-        </button>
+        <button onClick={() => deletePaciente(id)}>excluir</button>
       </div>
     </div>
-     
   );
 };

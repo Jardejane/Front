@@ -132,5 +132,20 @@ export const App = {
     });
     const resp = await res.data;
   },
-
+  
+  getWebSala : async (token) =>{
+    try {
+      const res = await api.get('/webchat/room', {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+    const resp = await res.data;
+      return resp;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  }
+  
 }

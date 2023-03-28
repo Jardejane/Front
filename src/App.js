@@ -8,6 +8,8 @@ import { TodosPacientes } from './doctor/pages/dashboard/listaPaciente/listaPaci
 import { ListaChat } from './doctor/pages/dashboard/lista-chat/listaChat';
 import { InformaçõesPaciente } from './paciente/informações-paciente/informações-paciente';
 import { EditarPaciente } from './paciente/upadatePaciente/edite';
+import {ListaTeste} from './paciente/lista-Teste/lista-teste'
+import {TesteEspecificoPaciente} from './paciente/teste-Id/IdTestePaciente'
 import Header from './doctor/components/header/index';
 
 function App() {
@@ -23,6 +25,8 @@ function App() {
         <Route path='lista-chats' element={<><Header /><ListaChat /></>} />
         <Route path='/paciente/:id' element={<><Header /><InformaçõesPaciente /></>} />
         <Route path='/editar-paciente/:id' element={<><Header /><EditarPaciente /></>} />
+        <Route path='/lista-teste/:id' element={<><Header /><ListaTeste /></>} />
+        <Route path='/teste/:id' element={<><Header /><TesteEspecificoPaciente /></>} />
       </Routes>
     </Router>
   );

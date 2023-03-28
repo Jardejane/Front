@@ -1,51 +1,127 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+body,html{
+  height: 100%;
+  width: 100%;
 }
 
-body,html {
-  width: 100%;
-  height: 100%;
-}
 div#root{
+  height: 100%;
+  width: 100%;
+}
+
+.todo-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9cc4e4;
   width: 100%;
   height: 100%;
+  padding: 20px;
 }
 
 .paciente-page-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    background-color: #9cc4e4;
-    
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 7vh;
+}
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.edit-button,
+.delete-button,
+.tests-button,
+.back-button {
+  margin-right: 20px;
+  font-size: 1.5vw;
+  padding: 1vw 2vw;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.edit-button {
+  background-color: #2196f3;
+}
+
+.delete-button {
+  background-color: #f44336;
+}
+
+.tests-button {
+  background-color: #4caf50;
+}
+
+.back-button {
+  background-color: #9e9e9e;
+}
+
+.infoQrcode {
+  display: flex;
+}
+
+.informacoes-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1vw;
+  margin-right: 5vw;
+  background-color: #83af9b;
+  border-radius: 1rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   
-  .informações{
-    margin-top: 50px;
-    width: 30vw;
-    display: flex;
-    flex-direction: column;
-    align-items: center;;
-    height: 61%;
-    background-color: #789390;
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+
+.informacoes-container  p {
+  font-size: 1.5vw;
+}
+
+.qrcode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.qrcode-container a {
+  margin-top: 2vh;
+  color: #2196f3;
+  font-size: 2vw;
+}
+
+@media only screen and (max-width: 600px) {
+  .informacoes-container {
+    margin-right: 0;
+    margin-bottom: 5vh;
   }
 
+  .infoQrcode {
+    flex-direction: column;
+  }
 
-  .paciente-page-container p {
-    margin-top: 16px;
-    font-size: 18px;
+  .edit-button,
+  .delete-button,
+  .tests-button,
+  .back-button {
+    margin-right: 10px;
+    font-size: 3vw;
+    padding: 2vw 4vw;
   }
-  
-  .paciente-page-container p:first-child {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
+
+  .informacoes-container  p {
+    font-size: 3vw;
   }
-  
+
+  .qrcode-container a {
+    margin-top: 5vh;
+    font-size: 4vw;
+  }
+}

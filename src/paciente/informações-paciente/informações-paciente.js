@@ -1,10 +1,11 @@
-import "./informaçoes.css";
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { App } from "../../route/api-helpers";
 import QRCode from "qrcode.react";
 
-export const InformaçõesPaciente = (token) => {
+import "./informaçoes.css";
+
+export const InformaçoesPaciente = ({ token }) => {
   const navigate = useNavigate();
   const [paciente, setPaciente] = useState({});
   const [qrCodeUrl, setQrCodeUrl] = useState("");
@@ -38,9 +39,25 @@ export const InformaçõesPaciente = (token) => {
   }, [id]);
 
   return (
-    <div>
+    <div className="todo-container">
       <div className="paciente-page-container">
-        <div className="informações">
+        <div className="button-container">
+          <Link to={`/editar-paciente/${id}`}>
+            <button className="edit-button">Editar Paciente</button>
+          </Link>
+          <button className="delete-button" onClick={() => deletePaciente(id)}>
+            Excluir
+          </button>
+          <Link to={`/lista-teste/${id}`}>
+            <button className="tests-button">Testes do Paciente</button>
+          </Link>
+          <button className="back-button" onClick={() => navigate(-1)}>
+            Voltar
+          </button>
+        </div>
+      </div>
+      <div className="infoQrcode">
+      <div className="informacoes-container">
           <p>{paciente?.name}</p>
           <p>Email: {paciente?.email}</p>
           <p>Idade: {paciente?.age}</p>
@@ -50,28 +67,12 @@ export const InformaçõesPaciente = (token) => {
           <p>Grávida: {simNao(paciente?.pregnant)}</p>
           <p>Filhos: {simNao(paciente?.children)}</p>
         </div>
-        <div>
-          <Link to={`/editar-paciente/${id}`}>
-            <button>Editar Paciente</button>
-          </Link>
-        </div>
-        <div>
-          <button onClick={() => deletePaciente(id)}>excluir</button>
-        </div>
-      </div>
-      <div className="qrcode-container">
-        <QRCode value={qrCodeUrl} size={256} />
+        <div className="qrcode-container">
+        <QRCode value={qrCodeUrl} size={150} />
         <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">
           Link para o chat do paciente
         </a>
       </div>
-      <div>
-        <Link to={`/lista-teste/${id}`}>
-          <button>testes do Paciente</button>
-        </Link>
-      </div>
-      <div>
-      <button onClick={() => navigate(-1)}>Voltar</button>
       </div>
     </div>
   );

@@ -114,7 +114,7 @@ function EditForm({ id, data, onFinish, isLoading, setIsLoading }) {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  }
+  } 
 
   return (
     <div className="edit-form-container">

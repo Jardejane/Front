@@ -6,7 +6,7 @@ import { SearchPage } from './doctor/pages/dashboard/buscar-paciente/buscar-paci
 import { CadastroPaciente } from './doctor/pages/dashboard/cadastroPaticiente/cadastro';
 import { TodosPacientes } from './doctor/pages/dashboard/listaPaciente/listaPaciente';
 import { ListaChat } from './doctor/pages/dashboard/lista-chat/listaChat';
-import { InformaçõesPaciente } from './paciente/informações-paciente/informações-paciente';
+import { InformaçoesPaciente } from './paciente/informações-paciente/informações-paciente';
 import { EditarPaciente } from './paciente/upadatePaciente/edite';
 import {ListaTeste} from './paciente/lista-Teste/lista-teste'
 import {TesteEspecificoPaciente} from './paciente/teste-Id/IdTestePaciente'
@@ -23,7 +23,7 @@ function App() {
         <Route path='cadastro-paciente' element={<><Header /><CadastroPaciente /></>} />
         <Route path='todos-pacientes' element={<><Header /><TodosPacientes /></>} />
         <Route path='lista-chats' element={<><Header /><ListaChat /></>} />
-        <Route path='/paciente/:id' element={<><Header /><InformaçõesPaciente /></>} />
+        <Route path='/paciente/:id' element={<><Header /><InformaçoesPaciente /></>} />
         <Route path='/editar-paciente/:id' element={<><Header /><EditarPaciente /></>} />
         <Route path='/lista-teste/:id' element={<><Header /><ListaTeste /></>} />
         <Route path='/teste/:id' element={<><Header /><TesteEspecificoPaciente /></>} />

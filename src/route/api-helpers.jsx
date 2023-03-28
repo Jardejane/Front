@@ -95,7 +95,7 @@ export const App = {
     }
   },
 
-  getPacienteById: async(token, id) =>{
+  getPacienteById: async (token, id) => {
     try {
       const res = await api.get(`/patient/${id}`, {
         headers: {
@@ -107,11 +107,11 @@ export const App = {
     } catch (error) {
       console.log(error);
     }
-  } , 
-  
-  updatePaciente : async (id, data, token) =>{
+  },
+
+  updatePaciente: async (id, data, token) => {
     try {
-      const req = await api.patch(`/patient/${id}`, data ,{
+      const req = await api.patch(`/patient/${id}`, data, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -125,29 +125,29 @@ export const App = {
   },
 
   deletePaciente: async (id, token) => {
-    const res = await api.delete(`/patient/${id}`,{
+    const res = await api.delete(`/patient/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
     });
     const resp = await res.data;
   },
-  
-  getWebSala : async (token) =>{
+
+  getWebSala: async (token) => {
     try {
       const res = await api.get('/webchat/room', {
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
-    const resp = await res.data;
+      const resp = await res.data;
       return resp;
     } catch (error) {
       console.log(error);
       return null;
     }
   },
-  getWebSalaById : async (id, token) =>{
+  getWebSalaById: async (id, token) => {
     try {
       const req = await api.get(`/webchat/room/${id}`, {
         headers: {
@@ -161,7 +161,7 @@ export const App = {
       return null;
     }
   },
-  getPacienteSalaId : async ( token, id) =>{
+  getPacienteSalaId: async (token, id) => {
     try {
       const req = await api.get(`/webchat/connect/${id}`, {
         headers: {
@@ -169,6 +169,52 @@ export const App = {
         }
       })
       const res = await req.data;
+      console.log(res)
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  searchTesteGet: async (token, query) => {
+    try {
+      const req = await api.get(`/record?patientId=${query}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      });
+      const res = await req.data;
+      return res
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  
+  updateTestePatch : async (id, data, token)=>{
+    try {
+      const req = await api.patch(`/record/${id}`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data
+      console.log("resApi", res)
+      return res
+    } catch (error) {
+      console.log(error)
+    }
+  },
+
+  getTesteById : async (id, token) =>{
+    console.log("appToken1",token)
+    try {
+      const req = await api.get(`/record/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      console.log("appToken2",token)
+      const res = await req.data;
+      console.log("app", id)
       console.log(res)
       return res;
     } catch (error) {

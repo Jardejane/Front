@@ -61,9 +61,17 @@ export const InformaçõesPaciente = (token) => {
       </div>
       <div className="qrcode-container">
         <QRCode value={qrCodeUrl} size={256} />
-      
-        <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">Link para o chat do paciente</a>
-
+        <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">
+          Link para o chat do paciente
+        </a>
+      </div>
+      <div>
+        <Link to={`/lista-teste/${id}`}>
+          <button>testes do Paciente</button>
+        </Link>
+      </div>
+      <div>
+      <button onClick={() => navigate(-1)}>Voltar</button>
       </div>
     </div>
   );

@@ -146,6 +146,33 @@ export const App = {
       console.log(error);
       return null;
     }
+  },
+  getWebSalaById : async (id, token) =>{
+    try {
+      const req = await api.get(`/webchat/room/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data;
+      return res;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  },
+  getPacienteSalaId : async ( token, id) =>{
+    try {
+      const req = await api.get(`/webchat/connect/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data;
+      console.log(res)
+      return res;
+    } catch (error) {
+      console.log(error);
+    }
   }
-  
 }

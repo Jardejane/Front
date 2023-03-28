@@ -1,4 +1,4 @@
-import {GetWebChat} from '../../../../webchat/salasTodas/todasSalasPsicologo'
+import {GetWebChat} from '../../../../webchat/salasTodas/salasPsicologo'
 
 export function ListaChat (){
   return (

@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { App } from "../../route/api-helpers";
-import { Modal, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
+import { format } from 'date-fns';
+import "./lista-teste.css";
 
 export const ListaTeste = ({ token }) => {
   const [testes, setTestes] = useState([]);
-  const [showModal, setShowModal] = useState(false);
   const [novoAnnotation, setNovoAnnotation] = useState("");
   const [testeSelecionado, setTesteSelecionado] = useState(null);
   const { id } = useParams();
@@ -20,22 +21,14 @@ export const ListaTeste = ({ token }) => {
     getTestesPaciente(token, id);
   }, [id]);
 
-  const handleAbrirModal = (teste) => {
-    setShowModal(true);
-    setTesteSelecionado(teste);
-    setNovoAnnotation(teste.annotation);
-  };
-
-  const handleFecharModal = () => {
-    setShowModal(false);
-    setTesteSelecionado(null);
-    setNovoAnnotation("");
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await App.updateTestePatch(testeSelecionado.id, { annotation: novoAnnotation }, token);
+      await App.updateTestePatch(
+        testeSelecionado.id,
+        { annotation: novoAnnotation },
+        token
+      );
       handleFecharModal();
       getTestesPaciente(token, id);
     } catch (error) {
@@ -47,37 +40,77 @@ export const ListaTeste = ({ token }) => {
     navigate(`/teste/${testeId}`);
   };
 
+  const handleAbrirModal = (teste) => {
+    setTesteSelecionado(teste);
+    setNovoAnnotation(teste.annotation);
+  };
+
+  const handleFecharModal = () => {
+    setTesteSelecionado(null);
+    setNovoAnnotation("");
+  };
+
   return (
-    <div>
-      <h1>Lista de Testes do Paciente</h1>
-      <ul>
+    <div className="lista-teste">
+      <div className="buttonH1">
+        <h1 className="titulo">Testes do Paciente</h1>
+        <button className="botao-voltar" onClick={() => navigate(-1)}>
+          Voltar
+        </button>
+      </div>
+      <ul className="lista">
         {testes.map((teste) => (
-          <li key={teste.id}>
-            <p>{teste.annotation}</p>
-            <p>{teste.bsi}</p>
-            <p>{teste.ham_a}</p>
-            <p>{teste.ham_d}</p>
-            <p>{teste.k10}</p>
-            <button onClick={() => handleAbrirModal(teste)}>Editar anotação</button>
-            <button onClick={() => handleTesteClick(teste.id)}>Ver detalhes</button>
+          <li className="item" key={teste.id}>
+            <div className="item-conteudo">
+              <div className="annotation">
+              <p>Horario do teste: {format(new Date(teste.createdAt), 'dd-MM-yyyy HH:mm')}</p>
+                <p>{`${teste.annotation.substring(0, 60)}... `}</p>
+                <button
+                  className="botao-ler-mais"
+                  onClick={() => handleAbrirModal(teste)}
+                >
+                  Ler mais
+                </button>
+              </div>
+              <div className="botoes">
+                <button
+                  className="botao-detalhes"
+                  onClick={() => handleTesteClick(teste.id)}
+                >
+                  Ver detalhes
+                </button>
+              </div>
+            </div>
           </li>
         ))}
       </ul>
-      <button onClick={() => navigate(-1)}>Voltar</button>
-      <Modal show={showModal} onHide={handleFecharModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Editar anotação</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <form onSubmit={handleSubmit}>
-            <label htmlFor="nova-anotacao">Nova anotação:</label>
-            <input type="text" id="nova-anotacao" value={novoAnnotation} onChange={(event) => setNovoAnnotation(event.target.value)} />
-            <Button type="submit">Salvar</Button>
-          </form>
-        </Modal.Body>
-      </Modal>
-    
+      {testeSelecionado && (
+        <div className="overlay">
+          <div className="modal">
+            <form onSubmit={handleSubmit}>
+              <div className="containerInput" >
+                <textarea
+                  id="nova-anotacao"
+                  value={novoAnnotation}
+                  onChange={(event) => setNovoAnnotation(event.target.value)}
+                />
+                <div className="buttonModal">
+                  <Button className="botao-salvar" type="submit">
+                    Salvar
+                  </Button>
+                  <Button
+                    className="botao-cancelar"
+                    variant="secondary"
+                    onClick={handleFecharModal}
+                  >
+                    Cancelar
+                  </Button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-

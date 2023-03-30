@@ -14,8 +14,8 @@ div#root{
   align-items: center;
   background-color: #9cc4e4;
   width: 100%;
-  height: 100%;
   padding: 20px;
+  min-height: 100%;
 }
 
 .paciente-page-container {
@@ -35,7 +35,6 @@ div#root{
 }
 
 .edit-button,
-.delete-button,
 .tests-button,
 .back-button {
   margin-right: 20px;
@@ -46,13 +45,13 @@ div#root{
   color: #fff;
   cursor: pointer;
 }
-
+.delete-button{
+  margin-top: 1rem;
+ font-size: 2rem; 
+ background-color: #9cc4e4;
+}
 .edit-button {
   background-color: #2196f3;
-}
-
-.delete-button {
-  background-color: #f44336;
 }
 
 .tests-button {
@@ -60,7 +59,7 @@ div#root{
 }
 
 .back-button {
-  background-color: #9e9e9e;
+  background-color: #2f5bcc;
 }
 
 .infoQrcode {

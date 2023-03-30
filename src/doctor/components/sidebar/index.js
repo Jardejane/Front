@@ -37,14 +37,11 @@ const Sidebar = ({ active }) => {
   };
   const handleSair = () => {
    localStorage.removeItem('token');
-    navigate('/login')
+    navigate('/')
   };
 
   const ListaChat = () => {
     navigate('/lista-chats')
-   };
-   const ListaPaciente = () => {
-    navigate('/todos-pacientes')
    };
    const CadastrarPaciente = () => {
     navigate('/cadastro-paciente')
@@ -62,7 +59,6 @@ const Sidebar = ({ active }) => {
         <SidebarItem Icon={FiSearch} Text="Buscar Pacientes" onClick={handleSearch} />
         <SidebarItem Icon={FaRocketchat} Text="Chats" onClick={ListaChat} />
         <SidebarItem Icon={FiUsers} Text="Cadastrar Paciente" onClick={CadastrarPaciente} />
-        <SidebarItem Icon={FiUsers} Text="Todos Pacientes" onClick={ListaPaciente} />
         <SidebarItem Icon={FiRefreshCw} Text="Editar Perfil" onClick={handleEdit}   />
         <SidebarItem Icon={FaUserAlt} Text="Deletar" onClick={() => setDeleteProfileClicked(true)}/>
         <SidebarItem Icon={FiLogOut} Text="Sair" onClick={handleSair} />

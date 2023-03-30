@@ -57,7 +57,7 @@ function LoginDoctor() {
                     </div>
 
                     <button className='' type='submit'>Entrar</button>
-                   <Link to = "/">
+                   <Link to = "/registro">
                     <button className ='buttonRegisto'>Registro</button>
                     </Link> 
                 </form>

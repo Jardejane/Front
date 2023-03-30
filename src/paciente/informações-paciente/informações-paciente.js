@@ -10,6 +10,7 @@ export const InformaçoesPaciente = ({ token }) => {
   const navigate = useNavigate();
   const [paciente, setPaciente] = useState({});
   const [qrCodeUrl, setQrCodeUrl] = useState("");
+  const [psicologo, setPsicologo] = useState("");
   const { id } = useParams();
 
   async function getPacienteById(id) {
@@ -21,7 +22,10 @@ export const InformaçoesPaciente = ({ token }) => {
   const generateQRCode = async (id) => {
     const req = await App.getPacienteSalaId(token, id);
     const { patient } = req;
+    const { doctor } = req;
+    const doctorLink = `https://webchat-grupotech.vercel.app/${doctor}`;
     const doctorConnectionLink = `https://webchat-grupotech.vercel.app/${patient}`;
+    setPsicologo(doctorLink);
     setQrCodeUrl(doctorConnectionLink);
   };
 
@@ -67,14 +71,27 @@ export const InformaçoesPaciente = ({ token }) => {
         </div>
         <div className="qrcode-container">
           <QRCode value={qrCodeUrl} size={150} />
-          <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">
-            Link para o chat do paciente
+          <a
+            className="button"
+            href={qrCodeUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Link do chat do paciente
           </a>
+          <a
+            className="button"
+            href={psicologo}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Link do chat do Psicologo
+          </a>
+
           <button className="delete-button" onClick={() => deletePaciente(id)}>
             <BiTrash />
           </button>
         </div>
-
       </div>
     </div>
   );

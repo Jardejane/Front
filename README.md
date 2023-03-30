@@ -1,5 +1,4 @@
 ###Entrega - Grupo 4 
-Alexandre Pereira
 Flavio Alvarenga
 Jardejane Feitosa Lima
 Matheus de Barros

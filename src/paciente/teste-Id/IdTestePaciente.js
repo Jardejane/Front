@@ -1,3 +1,4 @@
+import './style.css'
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { EmotionChart } from "../components/EmotionChart";
@@ -29,18 +30,9 @@ export const TesteEspecificoPaciente = ({ token }) => {
   }, [id, token]);
 
   return (
-    <div>
-      <h1>Teste Especifico Paciente</h1>
-      <div>
-        {teste && (
-          <>
-            <EmotionChart record={record} />
-            <p>Anotação: {teste.annotation}</p>
-          </>
-        )}
-      </div>
-
-      <div>
+    <div className="containerTesteId">
+      <div className="containerHeader">
+        <h1>Teste Especifico Paciente</h1>
         <Link
           to="#"
           onClick={() => {
@@ -49,6 +41,23 @@ export const TesteEspecificoPaciente = ({ token }) => {
         >
           Voltar
         </Link>
+
+      </div>
+
+      <div className="ContainerCentro">
+        <div className='graficoAnnotation' >
+          {teste && (
+            <>
+              <EmotionChart record={record} />
+              <div className='p'>
+                <h2>Anotação</h2>
+              <p>{teste.annotation}</p>
+              </div>
+             
+            </>
+          )}
+        </div>
+
       </div>
     </div>
   );

@@ -13,8 +13,16 @@ div#root {
   width: 100%;
   height: 100%;
 }
-
-.search-page-container {
+.page-container5 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #9cc4e4;
+  width: 100%;
+  min-height: 100%;
+  padding-top: 3rem;
+}
+.search-page-container{
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,27 +30,27 @@ div#root {
   width: 100%;
   min-height: 100vh;
 }
-.search-page-container h1 {
+.search-page-container-Pesquisa h1 {
   text-align: center;
   font-size: 3.5rem;
   padding-top: 1rem;
   color: #036876;
 }
 
-.search-page-container form {
+.search-page-container-Pesquisa form {
   margin-top: 10px;
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
 }
 
-.search-page-container input {
+.search-page-container-Pesquisa input {
   padding: 10px;
   border-radius: 4px;
   font-size: 16px;
 }
 
-.search-page-container button {
+.search-page-container-Pesquisa button {
   padding: 10px;
   border: none;
   background-color: #007bff;
@@ -57,7 +65,7 @@ div#root {
   flex-direction: row;
   flex-wrap: wrap;
   height: 100%;
-  width: auto;
+  width: 90%;
   align-items: center;
   margin-left: 3rem;
 }
@@ -97,4 +105,27 @@ div#root {
   margin: 0;
   font-size: 16px;
   color: #555;
+}
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.search-input {
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 300px;
+  margin-right: 10px;
+}
+
+.search-button {
+  padding: 10px;
+  border: none;
+  background-color: #007bff;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
 }

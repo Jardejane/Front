@@ -1,5 +1,5 @@
 import "./cadastro.css";
- import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../../../../database/api";
 
@@ -16,7 +16,7 @@ export function CadastroPaciente({ token }) {
   });
 
   const [errors, setErrors] = useState({});
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -33,15 +33,13 @@ export function CadastroPaciente({ token }) {
         },
       })
       .then((response) => {
-        console.log("Patient created:", response.data);
         setPatient(response.data);
-        navigate('/dashboard')
+        navigate("/dashboard");
       })
       .catch((error) => {
         console.error("Error creating patient:", error);
       });
   };
-
 
   function validateBoolean(value) {
     return typeof value === "boolean";

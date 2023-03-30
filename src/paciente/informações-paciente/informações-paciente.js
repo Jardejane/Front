@@ -3,7 +3,6 @@ import { BiTrash } from "react-icons/bi";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { App } from "../../route/api-helpers";
 import QRCode from "qrcode.react";
-
 import "./informaçoes.css";
 
 export const InformaçoesPaciente = ({ token }) => {
@@ -16,7 +15,6 @@ export const InformaçoesPaciente = ({ token }) => {
   async function getPacienteById(id) {
     const paciente = await App.getPacienteById(token, id);
     setPaciente(paciente);
-    console.log("paciente", paciente);
   }
 
   const generateQRCode = async (id) => {

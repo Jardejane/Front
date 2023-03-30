@@ -1,7 +1,7 @@
-import {GetWebChat} from '../../../../webchat/salasTodas/salasPsicologo'
+import { GetWebChat } from '../../../../webchat/salasTodas/salasPsicologo'
 
-export function ListaChat (){
+export function ListaChat() {
   return (
-           <GetWebChat/>
-        )
+    <GetWebChat />
+  )
 }

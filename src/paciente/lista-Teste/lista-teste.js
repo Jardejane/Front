@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { App } from "../../route/api-helpers";
 import { Button } from "react-bootstrap";
-import { format } from 'date-fns';
+import { format } from "date-fns";
 import "./lista-teste.css";
 
 export const ListaTeste = ({ token }) => {
@@ -63,7 +63,10 @@ export const ListaTeste = ({ token }) => {
           <li className="item" key={teste.id}>
             <div className="item-conteudo">
               <div className="annotation">
-              <p>Horario do teste: {format(new Date(teste.createdAt), 'dd-MM-yyyy HH:mm')}</p>
+                <p>
+                  Horario do teste:{" "}
+                  {format(new Date(teste.createdAt), "dd-MM-yyyy HH:mm")}
+                </p>
                 <p>{`${teste.annotation.substring(0, 60)}... `}</p>
                 <button
                   className="botao-ler-mais"
@@ -88,7 +91,7 @@ export const ListaTeste = ({ token }) => {
         <div className="overlay">
           <div className="modal">
             <form onSubmit={handleSubmit}>
-              <div className="containerInput" >
+              <div className="containerInput">
                 <textarea
                   id="nova-anotacao"
                   value={novoAnnotation}

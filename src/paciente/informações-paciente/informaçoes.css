@@ -1,14 +1,15 @@
-body,html{
+body,
+html {
   height: 100%;
   width: 100%;
 }
 
-div#root{
+div#root {
   height: 100%;
   width: 100%;
 }
 
-.todo-container{
+.todo-container {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,10 +46,10 @@ div#root{
   color: #fff;
   cursor: pointer;
 }
-.delete-button{
+.delete-button {
   margin-top: 1rem;
- font-size: 2rem; 
- background-color: #9cc4e4;
+  font-size: 2rem;
+  background-color: #9cc4e4;
 }
 .edit-button {
   background-color: #2196f3;
@@ -79,7 +80,7 @@ div#root{
   height: 30vh;
 }
 
-.informacoes-container  p {
+.informacoes-container p {
   font-size: 1.5vw;
 }
 
@@ -108,7 +109,6 @@ div#root{
   cursor: pointer;
 }
 
-
 @media only screen and (max-width: 600px) {
   .informacoes-container {
     margin-right: 0;
@@ -128,7 +128,7 @@ div#root{
     padding: 2vw 4vw;
   }
 
-  .informacoes-container  p {
+  .informacoes-container p {
     font-size: 3vw;
   }
 

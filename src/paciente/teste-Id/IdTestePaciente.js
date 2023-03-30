@@ -1,5 +1,5 @@
-import './style.css'
-import React, { useState, useEffect } from "react";
+import "./style.css";
+import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { EmotionChart } from "../components/EmotionChart";
 import { App } from "../../route/api-helpers";
@@ -41,23 +41,20 @@ export const TesteEspecificoPaciente = ({ token }) => {
         >
           Voltar
         </Link>
-
       </div>
 
       <div className="ContainerCentro">
-        <div className='graficoAnnotation' >
+        <div className="graficoAnnotation">
           {teste && (
             <>
               <EmotionChart record={record} />
-              <div className='p'>
+              <div className="p">
                 <h2>Anotação</h2>
-              <p>{teste.annotation}</p>
+                <p>{teste.annotation}</p>
               </div>
-             
             </>
           )}
         </div>
-
       </div>
     </div>
   );

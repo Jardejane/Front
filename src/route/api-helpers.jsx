@@ -1,4 +1,3 @@
-import { Alert } from "react-bootstrap";
 import api from "../database/api";
 
 export const App = {
@@ -17,7 +16,7 @@ export const App = {
         throw new Error('Falha ao buscar dados.');
       }
     } catch (error) {
-      console.error(error);
+      alert(error.response.data.message);
     }
   },
   postDoctor: async (register) => {
@@ -46,7 +45,7 @@ export const App = {
     try {
       const id = await App.getDoctorIdFromToken()
       const response = await api.patch(`/doctor/${id}/activate`, { isActive: false })
-      console.log("response", response)
+      return response
     } catch (error) {
       console.error(error);
     }
@@ -56,8 +55,6 @@ export const App = {
     try {
       const response = await api.post('/auth/signin', login)
       const resp = response.data;
-      console.log('veio');
-      console.log(resp);
       return resp;
 
     } catch (error) {
@@ -75,7 +72,7 @@ export const App = {
       const resp = await res.data;
       return resp;
     } catch (error) {
-      console.log(error);
+      alert(error.resp.data.message);
       return null;
     }
   },
@@ -90,7 +87,7 @@ export const App = {
       const resp = await res.data;
       return resp;
     } catch (error) {
-      console.log(error);
+      alert(error.resp.data.message);
       return null;
     }
   },
@@ -105,7 +102,7 @@ export const App = {
       const resp = await res.data;
       return resp;
     } catch (error) {
-      console.log(error);
+      alert(error.resp.data.message);
     }
   },
 
@@ -117,10 +114,9 @@ export const App = {
         }
       })
       const res = await req.data
-      console.log("resApi", res)
       return res
     } catch (error) {
-      console.log(error)
+      alert(error.res.data.message);
     }
   },
 
@@ -143,7 +139,7 @@ export const App = {
       const resp = await res.data;
       return resp;
     } catch (error) {
-      console.log(error);
+      alert(error.resp.data.message);
       return null;
     }
   },
@@ -157,7 +153,7 @@ export const App = {
       const res = await req.data;
       return res;
     } catch (error) {
-      console.log(error);
+      alert(error.res.data.message);
       return null;
     }
   },
@@ -169,10 +165,9 @@ export const App = {
         }
       })
       const res = await req.data;
-      console.log(res)
       return res;
     } catch (error) {
-      console.log(error);
+      alert(error.res.data.message);
     }
   },
   searchTesteGet: async (token, query) => {
@@ -185,11 +180,11 @@ export const App = {
       const res = await req.data;
       return res
     } catch (error) {
-      console.log(error);
+      alert(error.res.data.message);
     }
   },
-  
-  updateTestePatch : async (id, data, token)=>{
+
+  updateTestePatch: async (id, data, token) => {
     try {
       const req = await api.patch(`/record/${id}`, data, {
         headers: {
@@ -197,28 +192,24 @@ export const App = {
         }
       })
       const res = await req.data
-      console.log("resApi", res)
       return res
     } catch (error) {
-      console.log(error)
+      alert(error.res.data.message);
     }
   },
 
-  getTesteById : async (id, token) =>{
-    console.log("appToken1",token)
+  getTesteById: async (id, token) => {
+    console.log("appToken1", token)
     try {
       const req = await api.get(`/record/${id}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
       })
-      console.log("appToken2",token)
       const res = await req.data;
-      console.log("app", id)
-      console.log(res)
       return res;
     } catch (error) {
-      console.log(error);
+      alert(error.res.data.message);
     }
   }
 }

@@ -118,7 +118,7 @@ function  RegistroDoctor() {
           {inputConfirmPasswordErr && <p>As senhas não coincidem.</p>}
 
           <button className='CadastroButton'   onClick={validate}>Cadastar</button>
-          <Link  to="login">
+          <Link  to="/">
             <button className='LoginButton' >Login</button>
           </Link>
 

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BiTrash } from "react-icons/bi";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { App } from "../../route/api-helpers";
 import QRCode from "qrcode.react";
@@ -45,9 +46,6 @@ export const InformaçoesPaciente = ({ token }) => {
           <Link to={`/editar-paciente/${id}`}>
             <button className="edit-button">Editar Paciente</button>
           </Link>
-          <button className="delete-button" onClick={() => deletePaciente(id)}>
-            Excluir
-          </button>
           <Link to={`/lista-teste/${id}`}>
             <button className="tests-button">Testes do Paciente</button>
           </Link>
@@ -57,7 +55,7 @@ export const InformaçoesPaciente = ({ token }) => {
         </div>
       </div>
       <div className="infoQrcode">
-      <div className="informacoes-container">
+        <div className="informacoes-container">
           <p>{paciente?.name}</p>
           <p>Email: {paciente?.email}</p>
           <p>Idade: {paciente?.age}</p>
@@ -68,11 +66,15 @@ export const InformaçoesPaciente = ({ token }) => {
           <p>Filhos: {simNao(paciente?.children)}</p>
         </div>
         <div className="qrcode-container">
-        <QRCode value={qrCodeUrl} size={150} />
-        <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">
-          Link para o chat do paciente
-        </a>
-      </div>
+          <QRCode value={qrCodeUrl} size={150} />
+          <a href={qrCodeUrl} target="_blank" rel="noopener noreferrer">
+            Link para o chat do paciente
+          </a>
+          <button className="delete-button" onClick={() => deletePaciente(id)}>
+            <BiTrash />
+          </button>
+        </div>
+
       </div>
     </div>
   );

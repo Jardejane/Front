@@ -1,10 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
+import { EmotionChart } from "../components/EmotionChart";
 import { App } from "../../route/api-helpers";
 
 export const TesteEspecificoPaciente = ({ token }) => {
   const { id } = useParams();
   const [teste, setTeste] = useState(null);
+  const record = {
+    bsi: teste?.bsi || 0,
+    ham_a: teste?.ham_a || 0,
+    ham_d: teste?.ham_d || 0,
+    k10: teste?.k10 || 0,
+  };
 
   useEffect(() => {
     async function getTesteById() {
@@ -12,12 +19,11 @@ export const TesteEspecificoPaciente = ({ token }) => {
         const teste = await App.getTesteById(id, token);
         setTeste(teste);
       } catch (error) {
-        console.log("Erro ao buscar o teste", error);
+        console.error("Erro ao buscar o teste", error);
       }
     }
 
     if (id) {
-      console.log(id);
       getTesteById();
     }
   }, [id, token]);
@@ -28,12 +34,8 @@ export const TesteEspecificoPaciente = ({ token }) => {
       <div>
         {teste && (
           <>
-            <p>Codico do teste: {teste.id}</p>
+            <EmotionChart record={record} />
             <p>Anotação: {teste.annotation}</p>
-            <p>BSI: {teste.bsi}</p>
-            <p>HAM-A: {teste.ham_a}</p>
-            <p>HAM-D: {teste.ham_d}</p>
-            <p>K10: {teste.k10}</p>
           </>
         )}
       </div>

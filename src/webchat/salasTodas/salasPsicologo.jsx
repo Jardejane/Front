@@ -26,8 +26,8 @@ export const GetWebChat = () => {
     return (
         <div className="containerRoom">
             <h1>Chats</h1>
-
-            {rooms.map((room) => (
+         <div className='listaChat'>
+         {rooms.map((room) => (
                 <div
                     className="listaRoom"
                     key={room.id}
@@ -43,6 +43,8 @@ export const GetWebChat = () => {
                     </div>
                 </div>
             ))}
+         </div>
+         
         </div>
     );
 };

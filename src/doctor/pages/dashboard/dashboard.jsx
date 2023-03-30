@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../../../route/auth";
-import {App} from '../../../route/api-helpers'
+import { App } from '../../../route/api-helpers'
 import './dashboard.css'
 export const Dashboard = ({ paciente }) => {
   const [getPaciente, setGetPaciente] = useState(paciente || []);

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import api from "../../../../database/api";
 import { Spinner } from "react-bootstrap";
-import './style.css'
+import "./style.css";
 
 export function CardWithData() {
   const [data, setData] = useState({
@@ -25,7 +25,6 @@ export function CardWithData() {
         },
       });
       const data = response.data;
-      console.log("Data:", data);
       setData(data);
     }
     fetchData();
@@ -114,75 +113,71 @@ function EditForm({ id, data, onFinish, isLoading, setIsLoading }) {
   function handleInputChange(event) {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-  } 
+  }
 
   return (
     <div className="edit-form-container">
-    <form onSubmit={handleSubmit}>
-      {isLoading ? (
-        <Spinner animation="border" variant="primary" />
-      ) : (
-        <>
-        <div>
-        <label htmlFor="name">Nome:</label>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
-
-        </div>
-        <div>
-        <label htmlFor="name">CRP:</label>
-          <input
-            type="text"
-            name="crp"
-            id="crp"
-            value={formData.crp}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-        <label htmlFor="name">Email:</label>
-          <input
-            type="text"
-            name="email"
-            id="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-        <label htmlFor="name">Senha:</label>
-          <input
-            type="text"
-            name="password"
-            id="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-
-        </div>
-        <div>
-        <label htmlFor="name">Telefone:</label>
-          <input
-            type="text"
-            name="phone"
-            id="phone"
-            value={formData.phone}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div>
-        <button type="submit">Salvar</button>
-        </div>
-        
-        </>
-      )}
-    </form>
+      <form onSubmit={handleSubmit}>
+        {isLoading ? (
+          <Spinner animation="border" variant="primary" />
+        ) : (
+          <>
+            <div>
+              <label htmlFor="name">Nome:</label>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                value={formData.name}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="name">CRP:</label>
+              <input
+                type="text"
+                name="crp"
+                id="crp"
+                value={formData.crp}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="name">Email:</label>
+              <input
+                type="text"
+                name="email"
+                id="email"
+                value={formData.email}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="name">Senha:</label>
+              <input
+                type="text"
+                name="password"
+                id="password"
+                value={formData.password}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="name">Telefone:</label>
+              <input
+                type="text"
+                name="phone"
+                id="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+              />
+            </div>
+            <div>
+              <button type="submit">Salvar</button>
+            </div>
+          </>
+        )}
+      </form>
     </div>
-    
   );
 }

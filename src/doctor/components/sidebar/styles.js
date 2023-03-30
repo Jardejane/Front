@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   background-color: #005f6b;
@@ -7,8 +7,8 @@ export const Container = styled.div`
   top: 0px;
   left: 0px;
   width: 300px;
-  left: ${props => props.sidebar ? '0' : '-100%'};
-  animation: showSidebar .4s;
+  left: ${(props) => (props.sidebar ? "0" : "-100%")};
+  animation: showSidebar 0.4s;
 
   > svg {
     color: white;
@@ -34,4 +34,3 @@ export const Container = styled.div`
 export const Content = styled.div`
   margin-top: 15px;
 `;
-

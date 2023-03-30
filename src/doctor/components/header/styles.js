@@ -1,11 +1,9 @@
-
-
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 90px;
   display: flex;
-  background-color:  #008c9e; 
+  background-color: #008c9e;
 
   > svg {
     color: white;

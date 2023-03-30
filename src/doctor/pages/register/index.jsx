@@ -5,7 +5,7 @@ import { App } from '../../../route/api-helpers'
 import { validEmail, validPassword } from "../../components/regex/regex";
 import { useNavigate } from "react-router-dom";
 
-function  RegistroDoctor() {
+function RegistroDoctor() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -59,7 +59,6 @@ function  RegistroDoctor() {
     }
     const register = { email, phone, crp, password, name, confirmPassword }
     App.postDoctor(register)
-    console.log(register)
     navigate("/dashboard")
   };
 
@@ -101,7 +100,7 @@ function  RegistroDoctor() {
           />
           {inputCrrErr && <p>Por favor digite um CRP valido!</p>}
 
-          <input 
+          <input
             type="password"
             placeholder="Senha"
             value={password}
@@ -117,8 +116,8 @@ function  RegistroDoctor() {
           />
           {inputConfirmPasswordErr && <p>As senhas não coincidem.</p>}
 
-          <button className='CadastroButton'   onClick={validate}>Cadastar</button>
-          <Link  to="/">
+          <button className='CadastroButton' onClick={validate}>Cadastar</button>
+          <Link to="/">
             <button className='LoginButton' >Login</button>
           </Link>
 

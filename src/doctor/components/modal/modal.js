@@ -1,6 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import React from "react";
+import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const ModalBackground = styled.div`
   position: fixed;
@@ -35,7 +35,7 @@ const ModalTitle = styled.h2`
   margin: 0;
   font-size: 20px;
   font-weight: 600;
-  color : #b7c9a9;
+  color: #b7c9a9;
 `;
 
 const ModalCloseButton = styled.button`
@@ -54,10 +54,8 @@ const ModalContent = styled.div`
   padding: 24px;
 `;
 
-
-
 const Modal = ({ handleClose, show, children }) => {
-  const showHideClassName = show ? 'modal display-block' : 'modal display-none';
+  const showHideClassName = show ? "modal display-block" : "modal display-none";
 
   return (
     <ModalBackground className={showHideClassName}>

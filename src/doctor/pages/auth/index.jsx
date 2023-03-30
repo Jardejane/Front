@@ -18,24 +18,22 @@ function LoginDoctor() {
     const handlePasswordChange = (e) => {
         setPassword(e.target.value);
     };
-    const handleSubmit = async  (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-           const login = { email, password }
-           const token=   await  App.loginDoctor(login);
-            
-             localStorage.setItem('token',token.accessToken);
-             navigate('/dashboard');
+            const login = { email, password }
+            const token = await App.loginDoctor(login)
+            localStorage.setItem('token', token.accessToken);
+            navigate('/dashboard');
         } catch (error) {
-           setError(error.response.data.message);
-            console.log(error)
+            setError(error.response.data.message);
         }
     };
 
 
     return (
-            <div className='container1'>
-                <div className='teste'>
+        <div className='container1'>
+            <div className='teste'>
 
                 <form className='form' onSubmit={handleSubmit}>
                     <h1>Login</h1>
@@ -46,7 +44,7 @@ function LoginDoctor() {
                         value={email}
                         onChange={handleEmailChange}
                     />
-                    <input 
+                    <input
                         type='password'
                         placeholder='Senha'
                         value={password}
@@ -57,13 +55,13 @@ function LoginDoctor() {
                     </div>
 
                     <button className='' type='submit'>Entrar</button>
-                   <Link to = "/registro">
-                    <button className ='buttonRegisto'>Registro</button>
-                    </Link> 
+                    <Link to="/registro">
+                        <button className='buttonRegisto'>Registro</button>
+                    </Link>
                 </form>
-                </div>
-
             </div>
+
+        </div>
     );
 }
 export default LoginDoctor

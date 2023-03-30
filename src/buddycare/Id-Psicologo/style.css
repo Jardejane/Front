@@ -1,0 +1,129 @@
+.containerPrincipal {
+  display: flex;
+  flex-direction: column;
+  background-color: #9cc4e4;
+  width: 100%;
+  min-height: 100vh;
+  align-items: center;
+  padding-top: 3rem;
+}
+.containerPrincipal h1 {
+  font-size: 2rem;
+  color: #056673;
+}
+
+.page-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 30px;
+}
+
+.container2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.card {
+  background-color: #83af9b;
+  border: 0.7 solid #ddd;
+  border-radius: 1rem;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  flex-basis: calc(30.13% - 4vw);
+  margin: 0.6vw;
+  height: 35vh;
+  width: 25vw;
+  margin-right: 2rem;
+  padding: 5.6rem;
+}
+
+.card-image {
+  border-radius: 3rem;
+  width: 6vw;
+  object-fit: cover;
+  background-color: #83af9b;
+  margin-top: 0.5rem;
+}
+
+.card-info {
+  text-align: center;
+}
+
+.patient-list-container {
+  flex: 1;
+}
+
+.patient-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.patient-list li {
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 5px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+.patient-details-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.patient-details-card {
+  background-color: #8275d0;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+}
+
+.patient-details-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 8px;
+  margin-top: 0;
+}
+.patient-details-card p {
+  font-size: 1rem;
+  margin-bottom: 8px;
+
+}
+.FecharButton{
+  width: 10rem;
+  height: 20px;
+  border: none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #676666;
+  background-color: #7dcdb1;
+  cursor: pointer;
+}
+.AtivarButton{
+  margin-top: 7px;
+  width: 8rem;
+  height: 35px;
+  border: none;
+  border-radius: 2px;
+  font-size: 14px;
+  font-weight: 700;
+  color: #fff;
+  background-color: #eb416e;
+  cursor: pointer;
+}

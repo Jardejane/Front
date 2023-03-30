@@ -21,14 +21,18 @@ function LoginDoctor() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const login = { email, password }
-            const token = await App.loginDoctor(login)
-            localStorage.setItem('token', token.accessToken);
+          const login = { email, password }
+          const token = await App.loginDoctor(login)
+          localStorage.setItem('token', token.accessToken);
+          if (email === 'admin@buddycare.com') {
+            navigate('/home-buddy');
+          } else {
             navigate('/dashboard');
+          }
         } catch (error) {
-            setError(error.response.data.message);
+          setError(error.response.data.message);
         }
-    };
+      };      
 
 
     return (

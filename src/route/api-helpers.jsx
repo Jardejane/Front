@@ -41,10 +41,14 @@ export const App = {
       return id;
     }
   },
-  deactivateAccount: async () => {
+  deactivateAccount: async (token) => {
     try {
       const id = await App.getDoctorIdFromToken()
-      const response = await api.patch(`/doctor/${id}/activate`, { isActive: false })
+      const response = await api.patch(`/doctor/${id}/activate`, { isActive: false } ,{
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
       return response
     } catch (error) {
       console.error(error);
@@ -199,7 +203,6 @@ export const App = {
   },
 
   getTesteById: async (id, token) => {
-    console.log("appToken1", token)
     try {
       const req = await api.get(`/record/${id}`, {
         headers: {
@@ -210,6 +213,43 @@ export const App = {
       return res;
     } catch (error) {
       alert(error.res.data.message);
+    }
+  },
+
+  getAllPsicologoNaBuddy: async (token) =>{
+    try {
+      const req = await api.get(`/doctor`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data;
+      console.log(res)
+      return res;
+    } catch (error) {
+      console.log(error)
+    }
+  },
+  
+  getIdPsicologoNaBuddy: async (id, token) => {
+    try {
+      const req = await api.get(`/doctor/${id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+      const res = await req.data;
+      return res;
+    } catch (error) {
+     console.log(error)
+    }
+  },
+  deactivateAccountBuddy: async (id) => {
+    try {
+      const response = await api.patch(`/doctor/${id}/activate`, { isActive: false })
+      return response
+    } catch (error) {
+      console.error(error);
     }
   }
 }

@@ -9,12 +9,16 @@ import { InformaçoesPaciente } from "./paciente/informações-paciente/informa�
 import { EditarPaciente } from "./paciente/upadatePaciente/edite";
 import { ListaTeste } from "./paciente/lista-Teste/lista-teste";
 import { TesteEspecificoPaciente } from "./paciente/teste-Id/IdTestePaciente";
+import {BuddyHome} from './buddycare/home/buddyHome'
+import {BuddyPsicologoPatientsList} from './buddycare/Id-Psicologo/IdPsicologoBuddy'
 import Header from "./doctor/components/header/index";
 
 function App() {
   return (
     <Router>
       <Routes>
+      <Route exact path="/doctor/:id" element={<BuddyPsicologoPatientsList />} />
+      <Route exact path="/home-buddy" element={<BuddyHome/>} />
         <Route exact path="/" element={<LoginDoctor />} />
         <Route
           path="dashboard"

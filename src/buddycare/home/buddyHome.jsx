@@ -29,6 +29,8 @@ export const BuddyHome = () => {
     getAllDoctor();
   }, []);
 
+  const filteredDoctors = searchDoctors().filter(doctor => doctor.id !== 'df8e604f-4e82-4c3e-84df-b87621238253');
+
   return (
     <div className="page-container5">
       <h1>Doctors</h1>
@@ -48,7 +50,7 @@ export const BuddyHome = () => {
         </form>
       </div>
       <div className="results-container">
-        {searchDoctors().map((doctor) => (
+        {filteredDoctors.map((doctor) => (
           <div
             className="card1"
             key={doctor.id}

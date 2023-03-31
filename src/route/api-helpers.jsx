@@ -244,9 +244,9 @@ export const App = {
      console.log(error)
     }
   },
-  deactivateAccountBuddy: async (id) => {
+  deactivateAccountBuddy: async (id , data) => {
     try {
-      const response = await api.patch(`/doctor/${id}/activate`, { isActive: false })
+      const response = await api.patch(`/doctor/${id}/activate`, { isActive: data })
       return response
     } catch (error) {
       console.error(error);

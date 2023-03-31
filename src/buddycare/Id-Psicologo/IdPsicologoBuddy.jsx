@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { App } from '../../route/api-helpers';
 import './style.css';
 
 export const BuddyPsicologoPatientsList = () => {
+  const navigate = useNavigate();
   const [doctor, setDoctor] = useState(null);
   const [selectedPatient, setSelectedPatient] = useState(null);
   const { id } = useParams();
@@ -11,7 +12,7 @@ export const BuddyPsicologoPatientsList = () => {
   useEffect(() => {
     async function fetchDoctor() {
       const doctor = await App.getIdPsicologoNaBuddy(id);
-      console.log('DoctorId',doctor)
+      console.log('DoctorId', doctor)
       setDoctor(doctor);
     }
 
@@ -21,18 +22,18 @@ export const BuddyPsicologoPatientsList = () => {
   const simNao = (value) => {
     return value ? "Sim" : "Não";
   };
-  
+
   const ativoDesativo = (value) => {
     return value ? "Ativo" : "Desativado";
   };
 
   const handleDoctorStatusChange = async () => {
     const newStatus = !doctor.isActive;
-    await App.deactivateAccountBuddy(id, newStatus); 
-    setDoctor(prevState => ({...prevState, isActive: newStatus}));
+    await App.deactivateAccountBuddy(id, newStatus);
+    setDoctor(prevState => ({ ...prevState, isActive: newStatus }));
     console.log(newStatus)
   };
-  
+
 
   if (!doctor) {
     return <div>Loading...</div>;
@@ -40,8 +41,14 @@ export const BuddyPsicologoPatientsList = () => {
 
   return (
     <div className="containerPrincipal">
+      <div className="Container-hearder2">
+        <button className="back-button" onClick={() => navigate(-1)}>
+          Voltar
+        </button>
+      </div>
       <h1>Informações</h1>
       <div className="page-container">
+        
         <div className="container2">
           <div className="card">
             <img className="card-image" src={doctor.photo} alt={doctor.name} />

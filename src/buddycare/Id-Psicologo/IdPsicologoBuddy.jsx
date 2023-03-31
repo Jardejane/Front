@@ -28,9 +28,11 @@ export const BuddyPsicologoPatientsList = () => {
 
   const handleDoctorStatusChange = async () => {
     const newStatus = !doctor.isActive;
-    await App.deactivateAccountBuddy(id);
+    await App.deactivateAccountBuddy(id, newStatus); 
     setDoctor(prevState => ({...prevState, isActive: newStatus}));
-  }
+    console.log(newStatus)
+  };
+  
 
   if (!doctor) {
     return <div>Loading...</div>;
@@ -55,7 +57,7 @@ export const BuddyPsicologoPatientsList = () => {
             </div>
           </div>
           <div className="patient-list-container">
-            <h3>Lista de Paciente</h3>
+            <h3>Lista de Pacientes</h3>
             <ul className="patient-list">
               {doctor.patients.map((patient) => (
                 <li key={patient.id} onClick={() => {
